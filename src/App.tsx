@@ -10,7 +10,7 @@ import {
   Container,
   Spacer,
   Checkbox,
-  useCheckboxGroup
+  useCheckboxGroup,
 } from "@chakra-ui/react";
 
 const Header = () => (
@@ -34,7 +34,7 @@ const Todo = () => {
     setInput(e.target.value);
   };
 
-  const handleAdd = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleAdd = () => {
     // when input is empty, do nothing
     if (!input) {
       return;
@@ -44,7 +44,7 @@ const Todo = () => {
   };
 
   const handleDone = () => {
-    setTodo(todo.filter((a, i) => !value.includes(i.toString())));
+    setTodo(todo.filter((_, i) => !value.includes(i.toString())));
     // clear checkbox checked state
     setValue([]);
   };
